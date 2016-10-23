@@ -4,6 +4,7 @@ Rashmitha Rallapalli
 October 23, 2016
 html_document
 knitr::opts_chunk$set(echo = TRUE, cache = FALSE)
+
 1. Loading the data
 
 We set the working directory followed by downloading the dataset from its url and unzipping the file to "step_data.csv". The data comes from Roger Pengs github account.
@@ -52,6 +53,7 @@ steps_sum$date <- as.Date(steps_sum$date)
 ggplot(steps_sum, aes(date, steps)) + geom_line() +            
         scale_x_date(date_labels = "%b %d") + 
         ylab("Total number of steps")
+
 3. Average daily activity pattern
 
 In this section, we make a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken averaged across all days.
@@ -65,6 +67,7 @@ The time interval during which the maximum number of steps is taken is
 
 maxsteps_interval <- stepsmeaninterval$interval[which.max(stepsmeaninterval$steps)]
 maxsteps_interval
+
 4. Imputing missing values
 
 First of all, let us get a sense for the missing values. Are there days with all time intervals reporting NA step values?
@@ -106,6 +109,7 @@ Number of rows with NA values
 
 sum(is.na(activity$steps))
 sum(is.na(activity$steps))*100/nrow(activity) # Percentage of rows with missing values
+
 5. Differences in activity patterns: Weekdays vs Weekends
 
 Create a new column describing if the date is a weekday or weekend.
